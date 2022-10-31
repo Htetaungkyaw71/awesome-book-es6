@@ -30,12 +30,12 @@ document.querySelector('form').onsubmit = (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   checkls(library);
+  library.books.forEach((book) => library.render(book));
   spa();
 });
 
-const time = DateTime.now().toFormat("LLLL dd'th' tt");
-const date = document.querySelector('.date');
-
-date.innerHTML = time;
-
-library.books.forEach((book) => library.render(book));
+setInterval(() => {
+  const time = DateTime.now().toFormat("LLLL dd'th' tt");
+  const date = document.querySelector('.date');
+  date.innerHTML = time;
+}, 1000);
